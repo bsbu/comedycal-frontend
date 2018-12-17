@@ -1,0 +1,53 @@
+@import colors
+  
+.venue-filter
+  position: relative
+  &:not(:first-of-type)
+    margin-left: 10px
+  padding: 7px 10px
+  padding-left: 22px
+  background-color: rgba(0,0,0,0)
+  border-radius: 5px
+  border: 1px solid rgba(0,0,0,0.5)
+
+  cursor: pointer
+
+  transition: all 300ms
+
+  &:before
+    position: absolute
+    left: 3px
+    content: '\25CF'
+    font-size: 30px
+    line-height: 28px
+    top: 0
+    transition: inherit
+
+  &.ucb-franklin
+    &.active
+      background-color: $ucb-franklin
+      &:before
+        color: darken($ucb-franklin, 30%)
+    &:before
+      color: $ucb-franklin
+  &.ucb-sunset
+    &.active
+      background-color: $ucb-sunset
+    &:before
+      color: darken($ucb-sunset, 30%)
+  &.pack-theater
+    &.active
+      background-color: $pack-theater
+    &:before
+      color: darken($pack-theater, 30%)
+
+  &.active
+    border-color: rgba(0,0,0,0)
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1)
+    &:before
+      content: '\00d7'
+      font-size: 18px
+      left: 7px
+
+  input
+    display: none

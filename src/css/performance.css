@@ -1,0 +1,78 @@
+.performance {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+.performance:not(.active) {
+  display: none;
+}
+.performance.ucb-franklin {
+  background-color: rgba(242, 90, 90, 0.75);
+}
+.performance.ucb-sunset {
+  background-color: rgba(90, 242, 199, 0.75);
+}
+.performance.pack-theater {
+  background-color: rgba(242, 90, 229, 0.75);
+}
+.performance p {
+  margin: 0;
+  padding: 4px 10px;
+  font-weight: 300;
+}
+.performance p.subtitle {
+  margin-bottom: 5px;
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.performance p.performance__title {
+  font-weight: normal;
+}
+.performance p.performance__title span.close {
+  float: right;
+  margin-top: -2px;
+  margin-right: -2px;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.performance p.performance__title span.close.visible {
+  opacity: 1;
+}
+.performance p.performance__show-time {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 90%;
+}
+.performance .performance__info {
+  overflow: hidden;
+  max-height: 0;
+  padding: 0px;
+  transition: max-height 1000ms, padding 500ms linear 500ms;
+}
+.performance .performance__info.open {
+  max-height: 100vh;
+  padding: 10px;
+  transition: max-height 1000ms;
+}
+.performance .performance__info a.performance__tickets {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  background-color: #5994f2;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.performance .performance__info ul.performance__cast {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+.performance .performance__info ul.performance__cast li {
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=performance.css.map */

@@ -1,0 +1,56 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  padding: 1rem 15px;
+  background-color: rgba(89, 148, 242, 0.75);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.5em;
+  font-weight: 400;
+  border-left: 2px solid #222e40;
+}
+header h1 span {
+  font-size: 80%;
+  font-weight: 300;
+}
+header .venue-filters {
+  margin-bottom: 10px;
+}
+header .venue-filters h3 {
+  font-weight: 300;
+  border-bottom: 1px solid #222e40;
+  margin-bottom: 15px;
+}
+header .month-picker {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 400;
+}
+header .month-picker .arrow {
+  font-size: 0.75em;
+  margin: 0px 10px;
+  padding: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0.6;
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 250ms;
+}
+header .month-picker .arrow:hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=app.css.map */
