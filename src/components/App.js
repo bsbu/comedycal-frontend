@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: moment().format('MMMM'),
+      month: moment(),
       performances: [],
       activeVenues: {
         'ucb-franklin': true,
@@ -18,21 +18,22 @@ class App extends Component {
         'pack-theater': true,
       },
     };
-    this.getPerformances(this.state.month);
+    this.getPerformances(
+      this.state.month.format('MMMM'),
+      this.state.month.format('YYYY')
+    );
   }
 
-  getPerformances = month => {
-    getPerformancesByMonth(month)
+  getPerformances = (month, year) => {
+    getPerformancesByMonth(month, year)
       .then(res => this.setState({ performances: res.data }))
       .catch(err => console.log(err));
   };
 
   changeMonth = amount => {
-    const month = moment()
-      .month(this.state.month)
-      .add(amount, 'months')
-      .format('MMMM');
+    const month = this.state.month.clone().add(amount, 'months');
     this.setState({ month });
+    this.getPerformances(month.format('MMMM'), month.format('YYYY'));
   };
 
   toggleActiveVenue = venueName => {
@@ -79,18 +80,16 @@ class App extends Component {
             <button className="arrow" onClick={() => this.changeMonth(-1)}>
               <span className="arrow__icon">&lt;</span>{' '}
               <span className="prev-month">
-                {moment()
-                  .month(this.state.month)
+                {this.state.month
+                  .clone()
                   .subtract(1, 'months')
                   .format('MMMM')}
               </span>
             </button>
-            {moment()
-              .month(this.state.month)
-              .format('MMMM')}
+            {this.state.month.format('MMMM')}
             <button className="arrow" onClick={() => this.changeMonth(1)}>
-              {moment()
-                .month(this.state.month)
+              {this.state.month
+                .clone()
                 .add(1, 'months')
                 .format('MMMM')}{' '}
               &gt;
@@ -99,7 +98,7 @@ class App extends Component {
         </header>
         <Calendar
           performances={this.state.performances}
-          month={this.state.month}
+          month={this.state.month.clone()}
           activeVenues={this.state.activeVenues}
         />
       </div>
